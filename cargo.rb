@@ -6,6 +6,7 @@ class Cargo < Formula
 
   depends_on "rust"
   depends_on "cmake"
+  depends_on "pkg-config"
 
   def install
     args = ["--prefix=#{prefix}"]
