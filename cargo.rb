@@ -5,6 +5,7 @@ class Cargo < Formula
   head "https://github.com/rust-lang/cargo.git"
 
   depends_on "rust"
+  depends_on "cmake"
 
   def install
     args = ["--prefix=#{prefix}"]
