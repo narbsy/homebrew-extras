@@ -7,7 +7,11 @@ class Cargo < Formula
   depends_on "rust"
 
   def install
-    system "make", "PREFIX=#{prefix}"
-    system "make", "PREFIX=#{prefix}", "install"
+    args = ["--prefix=#{prefix}"]
+    args << "--disable-rpath" if build.head?
+    args << "--enable-clang" if ENV.compiler == :clang
+    system "./configure", *args
+    system "make"
+    system "make install"
   end
 end
