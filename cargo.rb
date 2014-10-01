@@ -10,7 +10,6 @@ class Cargo < Formula
 
   def install
     args = ["--prefix=#{prefix}"]
-    args << "--enable-clang" if ENV.compiler == :clang
     system "./configure", *args
     system "make"
     system "make install"
